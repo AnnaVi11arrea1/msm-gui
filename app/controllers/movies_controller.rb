@@ -15,7 +15,7 @@ class MoviesController < ApplicationController
     the_movie.save
     redirect_to("/movies/#{the_movie.id}") #redirecting w/string interpolationdo not need to use ruby tags inside a ruby file!
   end
-
+  
   def create
     m = Movie.new
     m.title = params.fetch("the_title")
