@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def update
-    m_id = params.fetch("the_id")
+    m_id = params.fetch("path_id")
     matching_records = Movie.where({ :id => m_id })
     the_movie = matching_records.at(0)
 
@@ -11,13 +11,11 @@ class MoviesController < ApplicationController
     the_movie.description = params.fetch("the_description")
     the_movie.image = params.fetch("the_image")
     the_movie.director_id = params.fetch("the_director_id")
-
     # save
     the_movie.save
     redirect_to("/movies/#{the_movie.id}") #redirecting w/string interpolationdo not need to use ruby tags inside a ruby file!
   end
 
- 
   def create
     m = Movie.new
     m.title = params.fetch("the_title")
@@ -27,16 +25,13 @@ class MoviesController < ApplicationController
     m.image = params.fetch("the_image")
     m.director_id = params.fetch("the_director_id")
 
-
     # m.x must be exactly the name in the table. The params.fetch are grabbed from whatever value we use in the form, and can be modified.
-
     m.save
-
     redirect_to("/movies")
   end
 
   def destroy
-    the_id = params.fetch("an_id")
+    the_id = params.fetch("path_id")
 
     matching_records = Movie.where({ :id => the_id })
 

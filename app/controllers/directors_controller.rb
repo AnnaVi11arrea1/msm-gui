@@ -11,8 +11,8 @@ class DirectorsController < ApplicationController
     redirect_to("/directors")
   end
   def update
-    director_id = params.fetch("the_id")
-    matching_records = Movie.where({ :id => director_id })
+    director_id = params.fetch("path_id")
+    matching_records = Director.where({ :id => director_id })
     director = matching_records.at(0)
 
     director.name = params.fetch("the_name")
