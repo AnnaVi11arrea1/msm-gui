@@ -6,14 +6,19 @@ Rails.application.routes.draw do
 
   get("/directors", { :controller => "directors", :action => "index" })
   get("/directors/:path_id", { :controller => "directors", :action => "show" })
+  post("/create_director", { :controller => "directors", :action => "create" })
+  post("/update_director/:path_id", { :controller => "directors", :action => "update" })
+  post("/delete_director/:path_id", { :controller => "directors", :action => "destroy" })
 
   get("/movies", { :controller => "movies", :action => "index" })
   get("/movies/:path_id", { :controller => "movies", :action => "show" })
   post("/insert_movie_record", { :controller => "movies", :action => "create" })
-  get("/delete_movie/:an_id", { :controller => "movies", :action => "destroy" })
-  post("/modify_movie_record/:an_id", { :controller => "movies", :action => "update" })
+  get("/delete_movie/:path_id", { :controller => "movies", :action => "destroy" })
+  post("/modify_movie_record/:path_id", { :controller => "movies", :action => "update" })
   
   get("/actors", { :controller => "actors", :action => "index" })
   get("/actors/:path_id", { :controller => "actors", :action => "show" })
   post("/create_actor", { :controller => "actors", :action => "create" })
+  post("/update_actor/:path_id", { :controller => "actors", :action => "update" })
+  post("/delete_actor/:path_id", { :controller => "actors", :action => "destroy" })
 end

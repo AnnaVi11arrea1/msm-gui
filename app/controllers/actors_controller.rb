@@ -1,4 +1,26 @@
 class ActorsController < ApplicationController
+  def destroy
+    actor_id = params.fetch("path_id")
+    actor = Actor.where({ :id => actor_id })
+
+    actor.destroy
+
+    redirect_to("/actors")
+  end
+  def update
+    actor_id = params.fetch("the_id")
+    matching_records = Movie.where({ :id => actor_id })
+    actor = matching_records.at(0)
+
+    actor.name = params.fetch("the_name")
+    actor.dob = params.fetch("the_dob")
+    actor.bio = params.fetch("the_bio")
+    actor.image = params.fetch("the_image")
+
+    actor.save
+    redirect_to("/actors/#{actor.id}")
+  end
+
   def create
     actor = Actor.new
     actor.name = params.fetch("the_name")

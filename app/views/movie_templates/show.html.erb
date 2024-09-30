@@ -12,7 +12,7 @@
 
 <hr>
 
-<form action="/modify_movie_record<%= @the_movie.id %>" method="post">
+<form action="/modify_movie_record/<%= @the_movie.id %>" method="post">
   <div>
     <label for="title_field">Title</label>
     <input id="title_field" type="text" name="the_title" value="<%= @the_movie.title %>">
